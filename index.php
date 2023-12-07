@@ -21,8 +21,7 @@
   <section class="bg-center bg-no-repeat bg-blue-900 pt-24">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-6 lg:pt-6">
       <h1 class="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
-        Entrrepreneurs are the visionaries who sculpt the future with their ideas and drive change with their
-        determination.</h1>
+      IUB 360 aims to mold IT leaders, bridging academic concepts with real-world solutions, and preparing students for both global standards and conscientious citizenship.</h1>
       <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
         with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
         beyond their academic careers.</p>
@@ -51,9 +50,8 @@
           </h3>
           <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
           <p class="text-lg font-bold text-blue-900">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsum repellat magnam vel architecto,
-            blanditiis impedit, in ut consequatur nam, sint vero alias iste repudiandae beatae exercitationem iure!
-            Possimus, assumenda?
+          The initiative cultivates resilience, creativity, and adaptability, 
+          aiming to shape a generation of leaders driving Bangladesh's progress in the 4th industrial revolution.
           </p>
 
         </div>
@@ -65,9 +63,8 @@
           </h3>
           <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
           <p class="text-lg font-bold text-blue-900">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci provident enim aut facilis, dolorem
-            possimus sit voluptas minus, dignissimos veritatis quia. Obcaecati aut quae eos delectus ducimus numquam
-            voluptas aperiam!
+          IUB 360 Startup fuels exponential growth by guiding entrepreneurs through idea refinement, 
+          prototype development, and market-ready strategies.
           </p>
 
         </div>
@@ -79,9 +76,8 @@
           </h3>
           <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
           <p class="text-lg font-bold text-blue-900">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio saepe soluta illo omnis totam nostrum facere
-            deleniti repudiandae amet aliquam fugiat, praesentium nesciunt impedit optio quisquam, sint minima fugit
-            eos.
+          IUB 360 Startup fosters a vibrant entrepreneurial community, 
+          promoting collaboration and knowledge-sharing among participants.
           </p>
 
         </div>
