@@ -21,7 +21,7 @@
   <section class="bg-center bg-no-repeat bg-blue-900 pt-24">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-6 lg:pt-6">
       <h1 class="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
-        Entrepreneurs are the visionaries who sculpt the future with their ideas and drive change with their
+        Entrrepreneurs are the visionaries who sculpt the future with their ideas and drive change with their
         determination.</h1>
       <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
         with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
