@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,12 +26,10 @@
   <section class="bg-center bg-no-repeat bg-blue-900 pt-24">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-6 lg:pt-6">
       <h1 class="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
-      IUB 360 aims to mold IT leaders, bridging academic concepts with real-world solutions, 
-      and preparing students for both global standards and conscientious citizenship</h1>
-      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-        Student startup provide students with hands-on experience, 
-        foster entrepreneurship, and can lead to the development 
-        of successful businesses beyond their academic careers.</p>
+      IUB 360 aims to mold IT leaders, bridging academic concepts with real-world solutions, and preparing students for both global standards and conscientious citizenship.</h1>
+      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
+        with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
+        beyond their academic careers.</p>
       <a href="#" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
         Get Started
       </a>
@@ -88,7 +91,7 @@
 
     <div class="flex flex-row justify-center">
 
-      <a href="#"
+      <a href="howItWorks.php"
         class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium bg-blue-900 text-white rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900 hover:border-blue-100">
         Learn more
       </a>
@@ -106,7 +109,29 @@
 
       <div class="flex justify-around">
         <div>
-          <div class="flex justify-center font-bold text-3xl mb-4">17</div>
+          <div class="flex justify-center font-bold text-3xl mb-4">
+          <?php
+            $conn = new mysqli("localhost", "root", "", "iub360");
+
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Query to get the number of rows in the "companies" table
+            $sql = "SELECT COUNT(*) AS total FROM companies";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $totalRows = $row["total"];
+              echo $totalRows;
+            } else {
+              echo "16";
+            }
+            $conn->close();
+          ?>
+          </div>
           <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Project</div>
         </div>
         <div>
@@ -143,8 +168,8 @@
           </li>
         </ul>
         <form>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Apply</button>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">How it Works</button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
         </form>
     </div>
 
@@ -171,8 +196,8 @@
           </li>
         </ul>
         <form>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Apply</button>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">How it Works</button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
         </form>
     </div>
 
