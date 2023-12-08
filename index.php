@@ -25,7 +25,7 @@
       <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
         with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
         beyond their academic careers.</p>
-      <a href="#" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
+      <a href="login.php" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
         Get Started
       </a>
     </div>
@@ -86,7 +86,7 @@
 
     <div class="flex flex-row justify-center">
 
-      <a href="#"
+      <a href="howItWorks.php"
         class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium bg-blue-900 text-white rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900 hover:border-blue-100">
         Learn more
       </a>
@@ -141,8 +141,8 @@
           </li>
         </ul>
         <form>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Apply</button>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">How it Works</button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
         </form>
     </div>
 
@@ -169,8 +169,8 @@
           </li>
         </ul>
         <form>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Apply</button>
-          <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">How it Works</button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
         </form>
     </div>
 
