@@ -104,7 +104,29 @@
 
       <div class="flex justify-around">
         <div>
-          <div class="flex justify-center font-bold text-3xl mb-4">17</div>
+          <div class="flex justify-center font-bold text-3xl mb-4">
+          <?php
+            $conn = new mysqli("localhost", "root", "", "iub360");
+
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Query to get the number of rows in the "companies" table
+            $sql = "SELECT COUNT(*) AS total FROM companies";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+              $row = $result->fetch_assoc();
+              $totalRows = $row["total"];
+              echo $totalRows;
+            } else {
+              echo "Null";
+            }
+            $conn->close();
+          ?>
+          </div>
           <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Project</div>
         </div>
         <div>
