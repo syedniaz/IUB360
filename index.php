@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,7 +127,7 @@
               $totalRows = $row["total"];
               echo $totalRows;
             } else {
-              echo "Null";
+              echo "16";
             }
             $conn->close();
           ?>
