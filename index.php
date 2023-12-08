@@ -21,10 +21,12 @@
   <section class="bg-center bg-no-repeat bg-blue-900 pt-24">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-6 lg:pt-6">
       <h1 class="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
-      IUB 360 aims to mold IT leaders, bridging academic concepts with real-world solutions, and preparing students for both global standards and conscientious citizenship.</h1>
-      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
-        with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
-        beyond their academic careers.</p>
+      IUB 360 aims to mold IT leaders, bridging academic concepts with real-world solutions, 
+      and preparing students for both global standards and conscientious citizenship</h1>
+      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+        Student startup provide students with hands-on experience, 
+        foster entrepreneurship, and can lead to the development 
+        of successful businesses beyond their academic careers.</p>
       <a href="#" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
         Get Started
       </a>
