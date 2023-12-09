@@ -1,8 +1,3 @@
-<?php
-session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +25,7 @@ session_start();
       <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Student startup provide students
         with hands-on experience, foster entrepreneurship, and can lead to the development of successful businesses
         beyond their academic careers.</p>
-      <a href="#" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
+      <a href="login.php" class="inline-flex justify-center items-center py-3 px-5  mb-5 text-base font-medium  bg-white text-blue-900 rounded-lg border border-blue-900 hover:bg-blue-100 hover:text-blue-900">
         Get Started
       </a>
     </div>
@@ -53,7 +48,7 @@ session_start();
           <h3 class="text-2xl font-extrabold  text-blue-900 ">
             Empowerment
           </h3>
-          <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
+          <img class="rounded-lg" src="./img/empowerment.png" alt="stock" style="height:50%; width:100%;">
           <p class="text-lg font-bold text-blue-900">
           The initiative cultivates resilience, creativity, and adaptability, 
           aiming to shape a generation of leaders driving Bangladesh's progress in the 4th industrial revolution.
@@ -66,7 +61,7 @@ session_start();
           <h3 class="text-2xl font-extrabold text-blue-900">
             Growth
           </h3>
-          <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
+          <img class="rounded-lg" src="./img/growth.jpg" alt="stock"  style="height:50%; width:100%;">
           <p class="text-lg font-bold text-blue-900">
           IUB 360 Startup fuels exponential growth by guiding entrepreneurs through idea refinement, 
           prototype development, and market-ready strategies.
@@ -77,9 +72,9 @@ session_start();
         <div class="space-y-4">
 
           <h3 class="text-2xl font-extrabold text-blue-900">
-            Coummunity
+            Community
           </h3>
-          <img class="rounded-lg" src="./img/pexels-photo-5833767.jpeg" alt="stock">
+          <img class="rounded-lg" src="./img/community.png" alt="stock"  style="height:50%; width:100%;">
           <p class="text-lg font-bold text-blue-900">
           IUB 360 Startup fosters a vibrant entrepreneurial community, 
           promoting collaboration and knowledge-sharing among participants.
@@ -109,28 +104,28 @@ session_start();
 
       <div class="flex justify-around">
         <div>
-          <div class="flex justify-center font-bold text-3xl mb-4">
-          <?php
-            $conn = new mysqli("localhost", "root", "", "iub360");
+          <div class="flex justify-center font-bold text-3xl mb-4">06
+          <!-- <?php
+            // $conn = new mysqli("localhost", "root", "", "iub360");
 
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
+            // // Check connection
+            // if ($conn->connect_error) {
+            //   die("Connection failed: " . $conn->connect_error);
+            // }
 
-            // Query to get the number of rows in the "companies" table
-            $sql = "SELECT COUNT(*) AS total FROM companies";
-            $result = $conn->query($sql);
+            // // Query to get the number of rows in the "companies" table
+            // $sql = "SELECT COUNT(*) AS total FROM companies";
+            // $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-              $row = $result->fetch_assoc();
-              $totalRows = $row["total"];
-              echo $totalRows;
-            } else {
-              echo "16";
-            }
-            $conn->close();
-          ?>
+            // if ($result->num_rows > 0) {
+            //   $row = $result->fetch_assoc();
+            //   $totalRows = $row["total"];
+            //   echo $totalRows;
+            // } else {
+            //   echo "Null";
+            // }
+            // $conn->close();
+          ?> -->
           </div>
           <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Project</div>
         </div>
@@ -212,10 +207,10 @@ session_start();
   <section class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-12 lg:py-16">
     <div class="max-w-2xl mx-auto text-center mb-12">
       <h1 class="text-3xl font-extrabold text-blue-900 sm:text-4xl">
-        Star Alumni
+        Star Alumnus
       </h1>
       <p class="mt-4 text-base font-bold text-blue-900 sm:text-xl">
-        Details!
+        A true exemplar of excellence and success.
       </p>
     </div>
 
@@ -225,15 +220,15 @@ session_start();
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="./img/pexels-photo-5833767.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <img src="./img/carousel1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <!-- Item 2 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="./img/pexels-photo-5833767.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <img src="./img/carousel2.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <!-- Item 3 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="./img/pexels-photo-5833767.jpeg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <img src="./img/carousel3.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
       </div>
       <!-- Slider indicators -->
@@ -282,13 +277,13 @@ session_start();
 
       <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-auto">
         <a href="#">
-          <img class="max-h-72 w-auto mx-auto pt-8 rounded" src="./img/pexels-photo-5833767.jpeg" alt="" />
+          <img class="max-h-72 w-auto mx-auto pt-8 rounded" src="./img/newsletter0.jpg" alt="" />
         </a>
         <div class="p-5">
           <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2020</h5>
           </a>
-          <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+          <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2020 so far, in reverse chronological order.</p>
           <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
             Read more
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -301,7 +296,7 @@ session_start();
       <div class="grid grid-cols-1 pt-6 md:pt-0">
         <div class="pb-6 md:pb-2">
           <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
-            <img class="object-cover rounded max-h-24 w-auto pl-2 pt-3 md:pt-0" src="./img/pexels-photo-5833767.jpeg" alt="">
+            <img class="object-cover rounded max-h-28 w-auto pl-2 pt-3 md:pt-0" src="./img/newsletter1.jpg" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
               <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
@@ -310,19 +305,19 @@ session_start();
         </div>
         <div class="pb-6 md:pb-2">
           <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
-            <img class="object-cover rounded max-h-24 w-auto pl-2 pt-3 md:pt-0" src="./img/pexels-photo-5833767.jpeg" alt="">
+            <img class="object-cover rounded max-h-28 w-auto pl-2 pt-3 md:pt-0" src="./img/newsletter2.jpg" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
-              <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2022</h5>
+              <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2022 so far, in reverse chronological order.</p>
             </div>
           </a>
         </div>
         <div>
           <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
-            <img class="object-cover rounded max-h-24 w-auto pl-2 pt-3 md:pt-0" src="./img/pexels-photo-5833767.jpeg" alt="">
+            <img class="object-cover rounded max-h-28 w-auto pl-2 pt-3 md:pt-0" src="./img/newsletter3.jpg" alt="">
             <div class="flex flex-col justify-between p-4 leading-normal">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2021</h5>
-              <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Noteworthy technology acquisitions 2023</h5>
+              <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2023 so far, in reverse chronological order.</p>
             </div>
           </a>
         </div>
