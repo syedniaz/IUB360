@@ -75,7 +75,7 @@ session_start();
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Manage</a>
                     </li>
                     <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                    <a href="logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
                     </li>
                 </ul>
                 </div>
@@ -136,7 +136,7 @@ session_start();
     <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
-                <p class="text-2xl text-black"> Welcome 
+                <p class="text-2xl text-black"> Welcome  
                     <?php
                         if (isset($_SESSION["name"])) {
                             echo $_SESSION["name"];
