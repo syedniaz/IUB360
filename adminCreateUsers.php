@@ -1,4 +1,55 @@
 <?php
+// Replace these with your actual database credentials
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get user input from the form
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $userType = $_POST["user_type"];
+
+    // Ensure the email is unique (not already registered)
+    $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
+    $checkEmailResult = $conn->query($checkEmailQuery);
+
+    if ($checkEmailResult === false) {
+        die("Error checking email: " . $conn->error);
+    }
+
+    if ($checkEmailResult->num_rows > 0) {
+        echo "Email is already registered. Please use a different email.";
+    } else {
+        // Insert new user into the 'users' table
+        $insertQuery = "INSERT INTO users (name, email, password, user_type) VALUES ('$name', '$email', '$password', '$userType')";
+        $insertResult = $conn->query($insertQuery);
+
+        if ($insertResult === true) {
+            echo '<script>alert("User account created successfully!"); window.location.href = "adminUsers.php";</script>';
+        } else {
+            echo "Error creating user account: " . $conn->error;
+        }        
+    }
+}
+
+// Close the connection
+$conn->close();
+?>
+
+
+<?php
 session_start();
 ?>
 
@@ -9,7 +60,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Admin</title>
+  <title>Create Users</title>
   <link rel="icon" href="https://seeklogo.com/images/I/independent-university-logo-776F5F3A69-seeklogo.com.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -143,24 +194,33 @@ session_start();
 
     <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <p class="text-3xl text-black p-5">Create Users</p>
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
-                <p class="text-2xl text-black"> Welcome  
-                    <?php
-                        if (isset($_SESSION["name"])) {
-                            echo $_SESSION["name"];
-                        }
-                        else {
-                            echo "User Not Found";
-                        }
-                        echo "!";
-                        echo "<br>";
-                        if (isset($_SESSION["email"])) {
-                            echo "Email: " . $_SESSION["email"];
-                        }
-                        else {
-                            echo "Email: No User Found";
-                        }
-                    ?>
+                <p class="text-2xl text-black"> 
+                    <form class="space-y-4 md:space-y-6 p-2" action="" method="post">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Enter Name</label>
+                            <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="Name" required="">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Enter email</label>
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="name@company.com" required="">
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Enter Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" required="">
+                        </div>
+                        <div>
+                        <label for="user_type" class="block mb-2 text-sm font-medium text-gray-900">User Type</label>
+                        <select name="user_type" id="user_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full md:w-96 p-2.5">
+                            <option selected="">Select User Type</option>
+                            <option value="student">Student</option>
+                            <option value="mentor">Mentor</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        </div>
+                        <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create Account</button>
+                    </form>
                 </p>
             </div>
         </div>
