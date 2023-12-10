@@ -1,5 +1,53 @@
 <?php
 session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_info"])) {
+
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    
+    $userId = $_SESSION["user_id"]; 
+    $updateQuery = "UPDATE users SET name = '$name', email = '$email', password = '$password' WHERE user_id = $userId";
+    $updateResult = $conn->query($updateQuery);
+
+    if ($updateResult === true) {
+        echo '<script>alert("User information updated successfully!"); window.location.href = "manageStudentAccount.php";</script>';
+    } else {
+        echo "Error updating user information: " . $conn->error;
+    }
+}
+
+
+$userId = $_SESSION["user_id"]; 
+$selectQuery = "SELECT name, email, password FROM users WHERE user_id = $userId";
+$selectResult = $conn->query($selectQuery);
+
+if ($selectResult === false) {
+    die("Error retrieving user information: " . $conn->error);
+}
+
+$row = $selectResult->fetch_assoc();
+$name = $row["name"];
+$email = $row["email"];
+$password = $row["password"];
+
+
+$conn->close();
 ?>
 
 
@@ -9,7 +57,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Student</title>
+  <title>Manage Account</title>
   <link rel="icon" href="https://seeklogo.com/images/I/independent-university-logo-776F5F3A69-seeklogo.com.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -69,10 +117,10 @@ session_start();
                 </div>
                 <ul class="py-1" role="none">
                     <li>
-                    <a href="studentDashboard.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Dashboard</a>
+                    <a href="mentorDashboard.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Dashboard</a>
                     </li>
                     <li>
-                    <a href="studentManageAccount.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Manage</a>
+                    <a href="mentorManageAccount.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Manage</a>
                     </li>
                     <li>
                     <a href="logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
@@ -89,7 +137,7 @@ session_start();
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="studentDashboard.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="mentorDashboard.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                     <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
                     <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
@@ -98,7 +146,7 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="studentTimeline.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                     <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                 </svg>
@@ -114,7 +162,7 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="studentManageAccount.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="mentorManageAccount.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                 </svg>
@@ -136,23 +184,22 @@ session_start();
     <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
-                <p class="text-2xl text-black"> Welcome 
-                    <?php
-                        if (isset($_SESSION["name"])) {
-                            echo $_SESSION["name"];
-                        }
-                        else {
-                            echo "User Not Found";
-                        }
-                        echo "!";
-                        echo "<br>";
-                        if (isset($_SESSION["email"])) {
-                            echo "Email: " . $_SESSION["email"];
-                        }
-                        else {
-                            echo "Email: No User Found";
-                        }
-                    ?>
+                <p class="text-2xl text-black">
+                    <form class="space-y-4 md:space-y-6 p-2" action="" method="post">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                            <input type="text" name="name" id="name" value="<?php echo $name; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="Name" required="">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                            <input type="email" name="email" id="email" value="<?php echo $email; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="name@company.com" required="">
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                            <input type="text" name="password" id="password" value="<?php echo $password; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" required="">
+                        </div>
+                        <button type="submit" name="update_info" class="w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Update Account</button>
+                    </form>
                 </p>
             </div>
         </div>

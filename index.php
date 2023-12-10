@@ -104,29 +104,7 @@
 
       <div class="flex justify-around">
         <div>
-          <div class="flex justify-center font-bold text-3xl mb-4">06
-          <!-- <?php
-            // $conn = new mysqli("localhost", "root", "", "iub360");
-
-            // // Check connection
-            // if ($conn->connect_error) {
-            //   die("Connection failed: " . $conn->connect_error);
-            // }
-
-            // // Query to get the number of rows in the "companies" table
-            // $sql = "SELECT COUNT(*) AS total FROM companies";
-            // $result = $conn->query($sql);
-
-            // if ($result->num_rows > 0) {
-            //   $row = $result->fetch_assoc();
-            //   $totalRows = $row["total"];
-            //   echo $totalRows;
-            // } else {
-            //   echo "Null";
-            // }
-            // $conn->close();
-          ?> -->
-          </div>
+          <div class="flex justify-center font-bold text-3xl mb-4">06</div>
           <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Project</div>
         </div>
         <div>
@@ -147,25 +125,21 @@
           <span class="mr-2 text-5xl font-extrabold">6</span>
           <span class="text-gray-900">months</span>
         </div>
-        <!-- List -->
         <ul role="list" class="list-disc list-inside mb-8 space-y-4 text-left">
           <li class="items-center space-x-3">
-            <!-- Icon -->
             <span>1st level: <span class="font-semibold">Idea Cultivator (2 months)</span></span>
           </li>
           <li class="items-center space-x-3">
-            <!-- Icon -->
             <span>2nd level: <span class="font-semibold">Incubator (4months)</span></span>
           </li>
           <li class="opacity-0 items-center space-x-3">
-            <!-- Icon -->
             <span>- <span class="font-semibold">-</span></span>
           </li>
         </ul>
-        <form>
+        <div>
           <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
-          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
-        </form>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How It Works</a></button>
+        </div>
     </div>
 
     <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-gray-100 rounded-lg border border-gray-100 shadow">
@@ -175,25 +149,21 @@
           <span class="mr-2 text-5xl font-extrabold">12</span>
           <span class="text-gray-900">months</span>
         </div>
-        <!-- List -->
         <ul role="list" class="list-disc list-inside mb-8 space-y-4 text-left">
           <li class="items-center space-x-3">
-            <!-- Icon -->
             <span>1st level: <span class="font-semibold">Idea Cultivator (3 months)</span></span>
           </li>
           <li class="items-center space-x-3">
-            <!-- Icon -->
             <span>2nd level: <span class="font-semibold">Incubator (6 months)</span></span>
           </li>
           <li class="items-center space-x-3">
-            <!-- Icon -->
             <span>3rd level: <span class="font-semibold">Accelarator (3 months)</span></span>
           </li>
         </ul>
-        <form>
+        <div>
           <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="login.php">Apply</a></button>
-          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How it Works</a></button>
-        </form>
+          <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><a href="howItWorks.php">How It Works</a></button>
+        </div>
     </div>
 
       
@@ -202,7 +172,6 @@
   </section>
 
 
-  <!-- section: Carousel -->
 
   <section class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-12 lg:py-16">
     <div class="max-w-2xl mx-auto text-center mb-12">

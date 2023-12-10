@@ -1,5 +1,55 @@
 <?php
+// Start the session
 session_start();
+
+// Replace these with your actual database credentials
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_info"])) {
+
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    
+    $userId = $_SESSION["user_id"]; 
+    $updateQuery = "UPDATE users SET name = '$name', email = '$email', password = '$password' WHERE user_id = $userId";
+    $updateResult = $conn->query($updateQuery);
+
+    if ($updateResult === true) {
+        echo '<script>alert("User information updated successfully!"); window.location.href = "manageStudentAccount.php";</script>';
+    } else {
+        echo "Error updating user information: " . $conn->error;
+    }
+}
+
+
+$userId = $_SESSION["user_id"]; 
+$selectQuery = "SELECT name, email, password FROM users WHERE user_id = $userId";
+$selectResult = $conn->query($selectQuery);
+
+if ($selectResult === false) {
+    die("Error retrieving user information: " . $conn->error);
+}
+
+$row = $selectResult->fetch_assoc();
+$name = $row["name"];
+$email = $row["email"];
+$password = $row["password"];
+
+
+$conn->close();
 ?>
 
 
@@ -9,7 +59,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Student</title>
+  <title>Manage Account</title>
   <link rel="icon" href="https://seeklogo.com/images/I/independent-university-logo-776F5F3A69-seeklogo.com.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -136,23 +186,22 @@ session_start();
     <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
-                <p class="text-2xl text-black"> Welcome 
-                    <?php
-                        if (isset($_SESSION["name"])) {
-                            echo $_SESSION["name"];
-                        }
-                        else {
-                            echo "User Not Found";
-                        }
-                        echo "!";
-                        echo "<br>";
-                        if (isset($_SESSION["email"])) {
-                            echo "Email: " . $_SESSION["email"];
-                        }
-                        else {
-                            echo "Email: No User Found";
-                        }
-                    ?>
+                <p class="text-2xl text-black">
+                    <form class="space-y-4 md:space-y-6 p-2" action="" method="post">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                            <input type="text" name="name" id="name" value="<?php echo $name; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="Name" required="">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                            <input type="email" name="email" id="email" value="<?php echo $email; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" placeholder="name@company.com" required="">
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                            <input type="text" name="password" id="password" value="<?php echo $password; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full md:w-96 p-2.5" required="">
+                        </div>
+                        <button type="submit" name="update_info" class="w-full text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Update Account</button>
+                    </form>
                 </p>
             </div>
         </div>

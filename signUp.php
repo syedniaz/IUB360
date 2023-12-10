@@ -1,26 +1,20 @@
 <?php
-// Replace these with your actual database credentials
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "iub360";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get user input from the form
     $name = $_POST["name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Ensure the email is unique (not already registered)
     $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
     $checkEmailResult = $conn->query($checkEmailQuery);
 
@@ -31,8 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($checkEmailResult->num_rows > 0) {
         echo "Email is already registered. Please use a different email.";
     } else {
-        // Insert new user into the 'users' table
-        $userType = "student"; // Default user type for sign up
+        $userType = "student"; 
         $insertQuery = "INSERT INTO users (name, email, password, user_type) VALUES ('$name', '$email', '$password', '$userType')";
         $insertResult = $conn->query($insertQuery);
 
@@ -44,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Close the connection
 $conn->close();
 ?>
 
@@ -88,7 +80,7 @@ session_start();
                     <form class="space-y-4 md:space-y-6" action="" method="post">
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
-                            <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Name" required="">
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Name" required="">
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
