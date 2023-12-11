@@ -238,7 +238,7 @@
         <div class="flex">
           <div class="flex flex-col">
               <div class="font-bold text-3xl mb-4">Keep up with the latest news from IUB 360!</div>
-              <button type="submit" class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5">Event Calendar</button>
+              <button class="mt-4 text-white bg-blue-900 border border-blue-900 hover:text-blue-900 hover:bg-blue-100 hover:border-blue-100 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5"><a href="#">Event Calendar</a></button>
           </div>
         </div>
       </div>

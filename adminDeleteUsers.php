@@ -57,8 +57,6 @@ if ($selectResult === false) {
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js" defer></script>
 
-  <link rel="stylesheet" href="./css/adminDeleteUsers.css">
-
 </head>
 <body>
 
@@ -155,7 +153,7 @@ if ($selectResult === false) {
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="adminMessages.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
                 </svg>
@@ -188,29 +186,29 @@ if ($selectResult === false) {
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
                 <p class="text-2xl text-black"> 
                     <form method="post" action="">
-                        <div class="overflow-x-auto">
-                            <table class="table">
-                                <thead>
+                        <div class="relative overflow-x-auto shadow-md rounded-lg m-10">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>User Type</th>
-                                        <th>Delete</th>
+                                        <th class="px-6 py-3">Name</th>
+                                        <th class="px-6 py-3">Email</th>
+                                        <th class="px-6 py-3">User Type</th>
+                                        <th class="px-6 py-3">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php while ($row = $selectResult->fetch_assoc()) : ?>
-                                        <tr>
-                                            <td><?php echo $row["name"]; ?></td>
-                                            <td><?php echo $row["email"]; ?></td>
-                                            <td><?php echo $row["user_type"]; ?></td>
-                                            <td><input type="checkbox" name="selected_users[]" value="<?php echo $row["user_id"]; ?>"></td>
+                                        <tr class="odd:bg-white even:bg-gray-50 border-b">
+                                            <td class="px-6 py-4"><?php echo $row["name"]; ?></td>
+                                            <td class="px-6 py-4"><?php echo $row["email"]; ?></td>
+                                            <td class="px-6 py-4"><?php echo $row["user_type"]; ?></td>
+                                            <td class="px-6 py-4"><input type="checkbox" name="selected_users[]" value="<?php echo $row["user_id"]; ?>"></td>
                                         </tr>
                                     <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
-                        <button type="submit" name="delete_users" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center sm:w-auto md:w-auto me-2 mb-2">Delete Selected Users</button>
+                        <button type="submit" name="delete_users" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center m-10 me-2 mb-2 mt-8">Delete Selected Users</button>
                     </form>
                 </p>
             </div>
