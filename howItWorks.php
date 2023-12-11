@@ -33,15 +33,16 @@
             <p class="text-black-500 sm:text-lg">IUB 360 Startup initiative consists of a 6 months program (IUB 360 Sprint Program) and a 12 months program (IUB 360 Startup Program). These programs precisely navigate through three pivotal stages. Each phase is designed to meticulously refine ideas into viable products, foster the development of prototypes, and prepare startups to launch into competitive markets. These progressive stages ensure that participants are not just dreaming up ideas but are also executing them with precision and industry-ready skills.
                 <br><br>
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8">
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8  hover:bg-sky-200 ">
                     <h3 class="mb-4 text-2xl font-semibold">First Phase</h3>
                     <p class="text-black-500 sm:text-lg">Idea Cultivation<br>
                         (Society of Creative Minds)
                         </p><br>
                         <p class="text-gray-500 sm:text-lg">The Idea Cultivation phase, members focus on generating and refining creative concepts.
                             </p><br><br>
+                            
                 </div>
-                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8">
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 hover:bg-sky-200">
                     <h3 class="mb-4 text-2xl font-semibold">Second Phase</h3>
                     <p class="text-black-500 sm:text-lg"> Incubator<br>
                         (Society of Inventors)</p><br>
@@ -49,7 +50,7 @@
                         </p><br><br>
                         
                 </div>
-                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8">
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 hover:bg-sky-200">
                     <h3 class="mb-4 text-2xl font-semibold">Third Phase</h3>
                     <p class="text-black-500 sm:text-lg">Accelerator<br>
                         (Society of Technocrats)</p><br>
@@ -73,15 +74,15 @@
         </div>
         
         <div class="space-y-10 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800 hover:bg-sky-200">
                 <h3 class="mb-4 text-2xl font-semibold">IUB 360 Sprint Program</h3><br>
-                <p class="font-light text-gray-500 sm:text-lg">IUB 360 Sprint Program is a fast-tracked, intensive initiative designed to help students rapidly develop their ideas into marketable products with a particular focus on the IUB market. This accelerated program is divided into three key stages: Idea Selection, Incubator, and Accelerator each specifically tailored to support and enhance the different phases of startup evolution.. It offers a condensed schedule for participants to quickly validate their concepts, develop prototypes, and prepare for a product launch.</p><br><br>
+                <p class="font-light text-black-500 sm:text-lg">IUB 360 Sprint Program is a fast-tracked, intensive initiative designed to help students rapidly develop their ideas into marketable products with a particular focus on the IUB market. This accelerated program is divided into three key stages: Idea Selection, Incubator, and Accelerator each specifically tailored to support and enhance the different phases of startup evolution.. It offers a condensed schedule for participants to quickly validate their concepts, develop prototypes, and prepare for a product launch.</p><br><br>
                 
             </div>
        
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800 hover:bg-sky-200">
                 <h3 class="mb-4 text-2xl font-semibold">IUB 360 Startup Program</h3><br>
-                <p class="font-light text-gray-500 sm:text-lg">
+                <p class="font-light text-black-500 sm:text-lg">
                     IUB 360 Startup Program is a comprehensive initiative designed to take participants through the complete cycle of startup development, from concept to market entry. This program is segmented into three distinct stages: Idea Formation, Incubator, and Accelerator, each specifically tailored to support and enhance the different phases of startup evolution. Throughout this journey, students are encouraged to develop innovative products and viable business strategies, build robust solutions, and prepare to launch their ventures into the market.
                     </p><br>
                 
@@ -104,7 +105,7 @@
                 <h1 class="mb-4 text-2xl font-semibold text-blue-900">IUB 360 Sprint Program</h1><br>
                 <div class="flex items-center"> 
                     <hr class="flex-grow border-t border-black"> 
-                    <span class="px-2 text-gray-500"> </span><br>
+                    <span class="px-2 text-black-300"> </span><br>
                     </div>
                 <h5 class="mb-4 text-2xl font-semibold">Stage 1: Idea Selection</h5>
                     Engage in intensive sessions to identify and prioritize product ideas.
@@ -148,7 +149,7 @@
                 <h1 class="mb-4 text-2xl font-semibold text-blue-900">IUB 360 Startup Program</h1><br>
                 <div class="flex items-center"> 
                     <hr class="flex-grow border-t border-black"> 
-                    <span class="px-2 text-gray-500"> </span><br>
+                    <span class="px-2 text-black-300"> </span><br>
                     </div>
                 <h5 class="mb-4 text-2xl font-semibold">Stage 1: Idea Cultivation</h5>
                     
