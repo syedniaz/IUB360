@@ -198,6 +198,42 @@
         </div>
     </section>
 
+    <section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+      <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Frequently asked questions</h2>
+      <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+          <div>
+              <div class="mb-10">
+                  <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                      What do you mean by "Phases"?
+                  </h3>
+                  <p class="text-gray-500 dark:text-gray-400">Project phases refer to the different stages or steps in the life cycle of a project. These typically include planning, initiation, execution, monitoring, and closure. Each phase has specific tasks, goals, and milestones that contribute to the overall success of the project. .</p>
+              </div>
+              <div class="mb-10">                        
+                  <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                      Can program timelines be shifted?
+                  </h3>
+                  <p class="text-gray-500 dark:text-gray-400">Once you have applied for a specific program, you cannot change the program timeline.</p>
+              </div>
+              <div class="mb-10">
+                  <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                      How does support work?
+                  </h3>
+                  <p class="text-gray-500 dark:text-gray-400">We're aware of the importance of well qualified support, that is why we decided that support will only be provided by the mentors that actually worked on this project.</p>
+              </div>
+              <div class="mb-10">
+                  <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                      I want to apply for more than one project. Is that allowed?
+                  </h3>
+                  <p class="text-gray-500 dark:text-gray-400">Yes, you are welcome to apply for multiple projects. We encourage applicants to explore opportunities that align with their skills and interests. However, please ensure that you meet the eligibility criteria for each project you apply.</p>
+
+              </div>
+          </div>
+        
+      </div>
+  </div>
+</section>
+
 
 <?php include('assets/footer.php') ?>
 </body>
