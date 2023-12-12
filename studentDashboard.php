@@ -21,10 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $projectMember1 = $_POST["projectMember1"];
     $projectMember2 = $_POST["projectMember2"];
     $projectMember3 = $_POST["projectMember3"];
+    $projectCategory = $_POST["projectCategory"];
+    // $file_name = $_FILES['zipFile']['name'];
+    // $file_tmp = $_FILES['zipFile']['tmp_name'];
+    $file_path = 'uploads/' . $file_name; // Adjust the path where you want to store the file
 
     // Insert data into the table
-    $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3)
-            VALUES ('$projectName', '$batchNo', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3')";
+    $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3, projectCategory, projectFile)
+            VALUES ('$projectName', '$batchNo', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3', '$projectCategory', '$file_path')";
+    
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -231,7 +236,15 @@ session_start();
                 <label for="projectMember3" class="block text-sm font-medium text-gray-700">Project Member 3:</label>
                 <input type="text" id="projectMember3" name="projectMember3" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
-
+            <div class="mb-4">
+                <label for="projectCategory" class="block text-sm font-medium text-gray-700">Project Category: </label>
+                <input type="text" id="projectCategory" name="projectCategory" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <!-- Other form fields -->
+            <div class="mb-4">
+                <label for="zipFile" class="block text-sm font-medium text-gray-700">Upload Project:</label>
+                <input type="file" id="zipFile" name="zipFile" class="w-full border rounded-md border-gray-300">
+            </div>
             <div>
                 <input type="submit" value="Submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
             </div>
@@ -240,15 +253,11 @@ session_start();
 
     <!-- Button Card -->
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
-        <h2 class="text-xl font-semibold mb-4">Submit Project Form</h2>
-        <button onclick="location.href='projectForm.php'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Go to Form</button>
+        <h2 class="text-xl font-semibold mb-4">Timeline</h2>
+        
     </div>
 
-    <!-- Deadline Countdown Card -->
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
-        <h2 class="text-xl font-semibold mb-4">Project Deadline</h2>
-        <p id="countdown"></p>
-    </div>
+
 </div>
 
 
