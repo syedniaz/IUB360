@@ -35,9 +35,9 @@
                     <div class="team-member">
                         <a href="http://directory.iub.edu.bd/staffs/769" target="_blank" rel="noopener noreferrer">
                         <h3 class="text-xl font-semibold mb-2 text-blue-900">Professor Md. Mamun Bin Ibne Reaz, Ph.D.</h3>
-                        <img src="./img/Mamun.png" alt="Tanweer Hasan, Ph.D." class="team-member-img">
-                        <p class="text-gray-700">Vice Chancellor<br>Independent University, Bangladesh</p>
-                        <p class="text-gray-700">Email: <a href="mailto:t.hasan@iub.edu.bd" class="text-blue-900">t.hasan@iub.edu.bd</a></p>
+                        <img src="./img/Mamun.png" alt="Professor Md. Mamun Bin Ibne Reaz, Ph.D." class="team-member-img">
+                        <p class="text-gray-700">Dean<br>School of Engineering, Technology and Sciences</p>
+                        <p class="text-gray-700">Email: <a href="mailto:mamun@iub.edu.bd" class="text-blue-900">mamun@iub.edu.bd</a></p>
                     </div></a>
                     <div class="team-member">
                         <a href="http://directory.iub.edu.bd/staffs/88" target="_blank" rel="noopener noreferrer">
@@ -147,7 +147,7 @@
                         <h3 class="text-xl font-semibold mb-2 text-blue-900">Muhammad Al Asif </h3>
                         <img src="./img/asif.png" alt="Tanweer Hasan, Ph.D." class="developer-img">
                         <p class="text-gray-700">Student<br>ID: 1820330<br>Dept: CSE<br>Independent University, Bangladesh</p>
-                        <p class="text-gray-700">Email: <a href="mailto:saikatt.iub@gmail.com " class="text-blue-900">saikatt.iub@gmail.com </a></p>
+                        <p class="text-gray-700">Email: <a href="mailto:1820330@iub.edu.bd" class="text-blue-900">1820330@iub.edu.bd</a></p>
                     </div></a>
                     <div class="developer">
                         <a href="https://www.linkedin.com/in/md-mushfiqul-islam-khan/" target="_blank" rel="noopener noreferrer">
