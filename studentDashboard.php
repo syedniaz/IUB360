@@ -253,7 +253,29 @@ session_start();
 
     <!-- Button Card -->
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
-        <h2 class="text-xl font-semibold mb-4">Timeline</h2>
+        <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+
+    <div class="flex items-center justify-between mb-4">
+        <div class="w-1/4">
+            Stage 1: 
+            <span class="text-green-600 font-semibold">Complete</span>
+        </div>
+        <div class="w-1/4">
+            Stage 2: 
+            <span class="text-yellow-600 font-semibold">Onreview</span>
+        </div>
+        <div class="w-1/4">
+            Stage 3: 
+            <span class="text-red-600 font-semibold">Incomplete</span>
+        </div>
+        <div class="w-1/4">
+            Stage 4: 
+            <span class="text-red-600 font-semibold">Incomplete</span>
+        </div>
+    </div>
+</div>
+
         
     </div>
 
