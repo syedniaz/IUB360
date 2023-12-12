@@ -251,7 +251,7 @@ $stage4_status = 0;
     </div>
     </aside>
 
-    <!-- <div class="py-20 px-16 sm:ml-64">
+    <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
                 <p class="text-2xl text-black"> Welcome 
@@ -274,7 +274,7 @@ $stage4_status = 0;
                 </p>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="py-20 px-16 sm:ml-64">
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-3xl font-semibold mb-6">Student Timeline</h1>
