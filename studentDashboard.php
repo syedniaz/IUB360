@@ -22,9 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $projectMember2 = $_POST["projectMember2"];
     $projectMember3 = $_POST["projectMember3"];
     $projectCategory = $_POST["projectCategory"];
-    // $file_name = $_FILES['zipFile']['name'];
-    // $file_tmp = $_FILES['zipFile']['tmp_name'];
-    $file_path = 'uploads/' . $file_name; // Adjust the path where you want to store the file
+    $file_path = 'uploads/' . $file_name; 
 
     // Insert data into the table
     $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3, projectCategory, projectFile)
@@ -255,25 +253,25 @@ session_start();
         <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
 
-    <div class="flex items-center justify-between mb-4">
-        <div class="w-1/4">
-            Stage 1: 
-            <span class="text-green-600 font-semibold">Complete</span>
-        </div>
-        <div class="w-1/4">
-            Stage 2: 
-            <span class="text-yellow-600 font-semibold">Onreview</span>
-        </div>
-        <div class="w-1/4">
-            Stage 3: 
-            <span class="text-red-600 font-semibold">Incomplete</span>
-        </div>
-        <div class="w-1/4">
-            Stage 4: 
-            <span class="text-red-600 font-semibold">Incomplete</span>
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-1/4">
+                Stage 1: 
+                <span class="text-green-600 font-semibold">Complete</span>
+            </div>
+            <div class="w-1/4">
+                Stage 2: 
+                <span class="text-yellow-600 font-semibold">Onreview</span>
+            </div>
+            <div class="w-1/4">
+                Stage 3: 
+                <span class="text-red-600 font-semibold">Incomplete</span>
+            </div>
+            <div class="w-1/4">
+                Stage 4: 
+                <span class="text-red-600 font-semibold">Incomplete</span>
+            </div>
         </div>
     </div>
-</div>
 
         
     </div>
