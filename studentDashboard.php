@@ -40,6 +40,9 @@ $selectQuery1 = "
         project_details.project_member_2_name,
         project_details.project_member_3_name,
         project_details.category,
+        project_details.stage_1,
+        project_details.stage_2,
+        project_details.stage_3,
         project_details.initial_budget,
         project_details.project_path
     FROM
@@ -68,10 +71,45 @@ if ($row) {
     $initial_budget = $row["initial_budget"];
     $project_path = $row["project_path"];
 
+    $stage_1 = $row["stage_1"];
+    $stage_2 = $row["stage_2"];
+    $stage_3 = $row["stage_3"];
+
 } else {
     echo "No record found for the given user_id.";
 }
 
+$stage_1_text = "";
+$stage_2_text = "";
+$stage_3_text = "";
+
+$stage_1_color = "";
+$stage_2_color = "";
+$stage_3_color = "";
+
+if ($stage_1 == 0){
+    $stage_1_text = "Incomplete";
+    $stage_1_color = "text-red-600";
+} else {
+    $stage_1_text = "Complete";
+    $stage_1_color = "text-green-600";
+}
+
+if ($stage_2 == 0){
+    $stage_2_text = "Incomplete";
+    $stage_2_color = "text-red-600";
+} else {
+    $stage_2_text = "Complete";
+    $stage_2_color = "text-green-600";
+}
+
+if ($stage_3 == 0){
+    $stage_3_text = "Incomplete";
+    $stage_3_color = "text-red-600";
+} else {
+    $stage_3_text = "Complete";
+    $stage_3_color = "text-green-600";
+}
 
 $selectQuery = "SELECT name FROM users WHERE user_id = $userId";
 $selectResult = $conn->query($selectQuery);
@@ -184,11 +222,11 @@ $conn->close();
                 </a>
             </li>
             <li>
-                <a href="studentTimeline.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="studentProjects.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                     <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                 </svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">Timeline</span>
+                <span class="flex-1 ms-3 whitespace-nowrap">Projects</span>
                 </a>
             </li>
             <li>
@@ -295,15 +333,15 @@ $conn->close();
     <div class="flex items-center justify-between mb-4">
         <div class="w-1/4">
             Stage 1: 
-            <span class="text-green-600 font-semibold">Complete</span>
+            <span class="<?php echo $stage_1_color; ?> font-semibold"><?php echo $stage_1_text; ?></span>
         </div>
         <div class="w-1/4">
             Stage 2: 
-            <span class="text-yellow-600 font-semibold">Onreview</span>
+            <span class="<?php echo $stage_2_color; ?> font-semibold"><?php echo $stage_2_text; ?></span>
         </div>
         <div class="w-1/4">
             Stage 3: 
-            <span class="text-red-600 font-semibold">Incomplete</span>
+            <span class="<?php echo $stage_3_color; ?> font-semibold"><?php echo $stage_3_text; ?></span>
         </div>
     </div>
 </div>
