@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
 ?>
 
 
@@ -9,7 +18,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Student</title>
+  <title>View Messages</title>
   <link rel="icon" href="https://seeklogo.com/images/I/independent-university-logo-776F5F3A69-seeklogo.com.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -134,29 +143,40 @@ session_start();
     </aside>
 
     <div class="py-20 px-16 sm:ml-64">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
-            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
-                <p class="text-2xl text-black"> Welcome 
-                    <?php
-                        if (isset($_SESSION["name"])) {
-                            echo $_SESSION["name"];
-                        }
-                        else {
-                            echo "User Not Found";
-                        }
-                        echo "!";
-                        echo "<br>";
-                        if (isset($_SESSION["email"])) {
-                            echo "Email: " . $_SESSION["email"];
-                        }
-                        else {
-                            echo "Email: No User Found";
-                        }
-                    ?>
-                </p>
-            </div>
-        </div>
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+      <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th class="px-6 py-3">
+                Sender
+              </th>
+              <th class="px-6 py-3">
+                Message
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $studentId = $_SESSION["user_id"];
+            $query = "SELECT users_sender.name AS sender, student_messages.messages 
+                      FROM student_messages
+                      JOIN users AS users_sender ON student_messages.sender_id = users_sender.user_id
+                      WHERE student_messages.receiver_id = $studentId";
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>
+                      <td class='px-6 py-4'>$row[sender]</td>
+                      <td class='px-6 py-4'>$row[messages]</td>
+                    </tr>";
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
 
 </body>

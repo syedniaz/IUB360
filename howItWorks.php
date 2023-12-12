@@ -26,7 +26,7 @@
         </div>
 </section>
 
-<section id="box1" class="bg-center bg-no-repeat bg-white-900 px-24">
+<section id="box1" class="bg-center bg-no-repeat bg-white px-24">
         <div class="px-4 mx-auto max-w-screen-xl text-center pb-4 lg:pt-6">
             <h1 class="text-center  text-3xl font-extrabold text-black sm:text-4xl">
             Program stages </h1> <br>
@@ -66,7 +66,7 @@
 </section>
 
 
-<section id="box2" class="bg-center bg-no-repeat bg-white-900 px-36">
+<section id="box2" class="bg-center bg-no-repeat bg-white px-36">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-10 lg:pt-5">
         <div class="mx-auto max-w-screen-lg text-center mb-10 lg:mb-12">
             <h1 class="text-center  text-3xl font-extrabold text-black sm:text-4xl">
@@ -74,13 +74,13 @@
         </div>
         
         <div class="space-y-10 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800 hover:bg-sky-200">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 hover:bg-sky-200">
                 <h3 class="mb-4 text-2xl font-semibold">IUB 360 Sprint Program</h3><br>
                 <p class="font-light text-black-500 sm:text-lg">IUB 360 Sprint Program is a fast-tracked, intensive initiative designed to help students rapidly develop their ideas into marketable products with a particular focus on the IUB market. This accelerated program is divided into three key stages: Idea Selection, Incubator, and Accelerator each specifically tailored to support and enhance the different phases of startup evolution.. It offers a condensed schedule for participants to quickly validate their concepts, develop prototypes, and prepare for a product launch.</p><br><br>
                 
             </div>
        
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800 hover:bg-sky-200">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 hover:bg-sky-200">
                 <h3 class="mb-4 text-2xl font-semibold">IUB 360 Startup Program</h3><br>
                 <p class="font-light text-black-500 sm:text-lg">
                     IUB 360 Startup Program is a comprehensive initiative designed to take participants through the complete cycle of startup development, from concept to market entry. This program is segmented into three distinct stages: Idea Formation, Incubator, and Accelerator, each specifically tailored to support and enhance the different phases of startup evolution. Throughout this journey, students are encouraged to develop innovative products and viable business strategies, build robust solutions, and prepare to launch their ventures into the market.
@@ -94,14 +94,14 @@
         </div>
 </section>
 
-<section id="box3" class="bg-center bg-no-repeat bg-white-900 px-36">
+<section id="box3" class="bg-center bg-no-repeat bg-white px-36">
     <div class="px-4 mx-auto max-w-screen-xl text-center pb-10 lg:pt-5">
         <div class="mx-auto max-w-screen-lg text-center mb-10 lg:mb-12">
             <h1 class="text-center  text-3xl font-extrabold text-black sm:text-4xl">
                 Activities</h1>
         </div>
         <div class="space-y-10 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8">
                 <h1 class="mb-4 text-2xl font-semibold text-blue-900">IUB 360 Sprint Program</h1><br>
                 <div class="flex items-center"> 
                     <hr class="flex-grow border-t border-black"> 
@@ -145,7 +145,7 @@
             </div>
        
  
-            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8 bg-gray-800">
+            <div class="flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-400 shadow xl:p-8">
                 <h1 class="mb-4 text-2xl font-semibold text-blue-900">IUB 360 Startup Program</h1><br>
                 <div class="flex items-center"> 
                     <hr class="flex-grow border-t border-black"> 
