@@ -240,7 +240,6 @@ session_start();
                 <label for="projectCategory" class="block text-sm font-medium text-gray-700">Project Category: </label>
                 <input type="text" id="projectCategory" name="projectCategory" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
-            <!-- Other form fields -->
             <div class="mb-4">
                 <label for="zipFile" class="block text-sm font-medium text-gray-700">Upload Project:</label>
                 <input type="file" id="zipFile" name="zipFile" class="w-full border rounded-md border-gray-300">
@@ -251,7 +250,7 @@ session_start();
         </form>
     </div>
 
-    <!-- Button Card -->
+    <!-- Tagline Summary -->
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
         <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
