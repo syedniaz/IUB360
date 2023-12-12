@@ -1,4 +1,51 @@
 <?php
+// Assuming you've established a database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $projectName = $_POST["projectName"];
+    $batchNo = $_POST["batchNo"];
+    $projectLeader = $_POST["projectLeader"];
+    $projectMember1 = $_POST["projectMember1"];
+    $projectMember2 = $_POST["projectMember2"];
+    $projectMember3 = $_POST["projectMember3"];
+    $projectCategory = $_POST["projectCategory"];
+    // $file_name = $_FILES['zipFile']['name'];
+    // $file_tmp = $_FILES['zipFile']['tmp_name'];
+    $file_path = 'uploads/' . $file_name; // Adjust the path where you want to store the file
+
+    // Insert data into the table
+    $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3, projectCategory, projectFile)
+            VALUES ('$projectName', '$batchNo', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3', '$projectCategory', '$file_path')";
+    
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+
+
+
+<?php
 session_start();
 ?>
 
@@ -157,6 +204,83 @@ session_start();
             </div>
         </div>
     </div>
+    <div class="py-20 px-16 sm:ml-64">
+    <!-- Project Information Form Card -->
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">Project Information Form</h2>
+        <form action="studentDashboard.php" method="post">
+            <div class="mb-4">
+                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name:</label>
+                <input type="text" id="projectName" name="projectName" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="batchNo" class="block text-sm font-medium text-gray-700">Batch No:</label>
+                <input type="text" id="batchNo" name="batchNo" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="projectLeader" class="block text-sm font-medium text-gray-700">Project Leader:</label>
+                <input type="text" id="projectLeader" name="projectLeader" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="projectMember1" class="block text-sm font-medium text-gray-700">Project Member 1:</label>
+                <input type="text" id="projectMember1" name="projectMember1" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="projectMember2" class="block text-sm font-medium text-gray-700">Project Member 2:</label>
+                <input type="text" id="projectMember2" name="projectMember2" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="projectMember3" class="block text-sm font-medium text-gray-700">Project Member 3:</label>
+                <input type="text" id="projectMember3" name="projectMember3" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="projectCategory" class="block text-sm font-medium text-gray-700">Project Category: </label>
+                <input type="text" id="projectCategory" name="projectCategory" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="zipFile" class="block text-sm font-medium text-gray-700">Upload Project:</label>
+                <input type="file" id="zipFile" name="zipFile" class="w-full border rounded-md border-gray-300">
+            </div>
+            <div>
+                <input type="submit" value="Submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            </div>
+        </form>
+    </div>
+
+    <!-- Tagline Summary -->
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+
+    <div class="flex items-center justify-between mb-4">
+        <div class="w-1/4">
+            Stage 1: 
+            <span class="text-green-600 font-semibold">Complete</span>
+        </div>
+        <div class="w-1/4">
+            Stage 2: 
+            <span class="text-yellow-600 font-semibold">Onreview</span>
+        </div>
+        <div class="w-1/4">
+            Stage 3: 
+            <span class="text-red-600 font-semibold">Incomplete</span>
+        </div>
+        <div class="w-1/4">
+            Stage 4: 
+            <span class="text-red-600 font-semibold">Incomplete</span>
+        </div>
+    </div>
+</div>
+
+        
+    </div>
+
+
+</div>
+
 
 
 </body>
