@@ -3,13 +3,7 @@
 session_start();
 
 // Replace these with your actual database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "iub360";
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+include "connection.php";
 
 
 if ($conn->connect_error) {
