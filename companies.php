@@ -35,9 +35,10 @@
     <div class="container text-center">
         
         <?php
-            $db = new mysqli('localhost', 'root', '', 'iub360');
+            include "connection.php";
+            
             $sql = "SELECT * FROM companies";
-            $result = $db->query($sql);
+            $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 echo '<table class="table table-borderless text-blue-900 font-bold">';
@@ -59,7 +60,7 @@
             } else {
                 echo 'No companies found.';
             }
-            $db->close();
+            $conn->close();
         ?>
 
     </div>
