@@ -1,4 +1,46 @@
 <?php
+// Assuming you've established a database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "iub360";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $projectName = $_POST["projectName"];
+    $batchNo = $_POST["batchNo"];
+    $projectLeader = $_POST["projectLeader"];
+    $projectMember1 = $_POST["projectMember1"];
+    $projectMember2 = $_POST["projectMember2"];
+    $projectMember3 = $_POST["projectMember3"];
+
+    // Insert data into the table
+    $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3)
+            VALUES ('$projectName', '$batchNo', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+
+
+
+<?php
 session_start();
 ?>
 
@@ -157,6 +199,58 @@ session_start();
             </div>
         </div>
     </div>
+    <div class="py-20 px-16 sm:ml-64">
+    <!-- Project Information Form Card -->
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">Project Information Form</h2>
+        <form action="studentDashboard.php" method="post">
+            <div class="mb-4">
+                <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name:</label>
+                <input type="text" id="projectName" name="projectName" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="batchNo" class="block text-sm font-medium text-gray-700">Batch No:</label>
+                <input type="text" id="batchNo" name="batchNo" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="projectLeader" class="block text-sm font-medium text-gray-700">Project Leader:</label>
+                <input type="text" id="projectLeader" name="projectLeader" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div class="mb-4">
+                <label for="projectMember1" class="block text-sm font-medium text-gray-700">Project Member 1:</label>
+                <input type="text" id="projectMember1" name="projectMember1" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="projectMember2" class="block text-sm font-medium text-gray-700">Project Member 2:</label>
+                <input type="text" id="projectMember2" name="projectMember2" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+            <div class="mb-4">
+                <label for="projectMember3" class="block text-sm font-medium text-gray-700">Project Member 3:</label>
+                <input type="text" id="projectMember3" name="projectMember3" class="w-full px-3 py-2 border rounded-md border-gray-300">
+            </div>
+
+            <div>
+                <input type="submit" value="Submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            </div>
+        </form>
+    </div>
+
+    <!-- Button Card -->
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">Submit Project Form</h2>
+        <button onclick="location.href='projectForm.php'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Go to Form</button>
+    </div>
+
+    <!-- Deadline Countdown Card -->
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">Project Deadline</h2>
+        <p id="countdown"></p>
+    </div>
+</div>
+
 
 
 </body>
