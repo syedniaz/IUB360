@@ -1,51 +1,92 @@
 <?php
-// Assuming you've established a database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "iub360";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+session_start();
 
-// Check connection
+include "connection.php";
+
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $projectName = $_POST["projectName"];
-    $batchNo = $_POST["batchNo"];
-    $projectLeader = $_POST["projectLeader"];
+    $projectLeader = $_SESSION["user_id"];
     $projectMember1 = $_POST["projectMember1"];
     $projectMember2 = $_POST["projectMember2"];
     $projectMember3 = $_POST["projectMember3"];
-    $projectCategory = $_POST["projectCategory"];
-    $file_path = 'uploads/' . $file_name; 
+    $category = $_POST["category"];
+    $initial_budget = $_POST["initial_budget"];
+    $file_path = $_FILES["zipFile"]["name"];
 
-    // Insert data into the table
-    $sql = "INSERT INTO ProjectDetails (projectName, batchNo, projectLeader, projectMember1, projectMember2, projectMember3, projectCategory, projectFile)
-            VALUES ('$projectName', '$batchNo', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3', '$projectCategory', '$file_path')";
-    
+        
+    $sql = "INSERT INTO project_details (project_name, project_leader_id, project_member_1_name, project_member_2_name, project_member_3_name, category, stage_1, stage_2, stage_3, initial_budget, final_budget, project_path)
+            VALUES ('$projectName', '$projectLeader', '$projectMember1', '$projectMember2','$projectMember3', '$category', 0, 0, 0, '$initial_budget', NULL, '$file_path')";
+        
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo '<script>alert("New project added successfully!"); window.location.href = "studentDashboard.php";</script>';
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
-// Close the database connection
+$userId = $_SESSION["user_id"];
+$selectQuery1 = "
+    SELECT
+        project_details.project_name,
+        project_details.project_member_1_name,
+        project_details.project_member_2_name,
+        project_details.project_member_3_name,
+        project_details.category,
+        project_details.initial_budget,
+        project_details.project_path
+    FROM
+        users
+    LEFT JOIN
+        project_details ON users.user_id = project_details.project_leader_id
+    WHERE
+        users.user_id = $userId
+";
+
+$selectResult1 = $conn->query($selectQuery1);
+
+if ($selectResult1 === false) {
+    die("Error retrieving user and project information: " . $conn->error);
+}
+
+$row = $selectResult1->fetch_assoc();
+
+if ($row) {
+    $project_name = $row["project_name"];
+    $project_member_id = $_SESSION["user_id"];
+    $project_member_1_name = $row["project_member_1_name"];
+    $project_member_2_name = $row["project_member_2_name"];
+    $project_member_3_name = $row["project_member_3_name"];
+    $category = $row["category"];
+    $initial_budget = $row["initial_budget"];
+    $project_path = $row["project_path"];
+
+} else {
+    echo "No record found for the given user_id.";
+}
+
+
+$selectQuery = "SELECT name FROM users WHERE user_id = $userId";
+$selectResult = $conn->query($selectQuery);
+
+if ($selectResult === false) {
+    die("Error retrieving user information: " . $conn->error);
+}
+
+$row = $selectResult->fetch_assoc();
+$name = $row["name"];
+
+
 $conn->close();
 ?>
 
-
-
-
-<?php
-session_start();
-?>
 
 
 <!DOCTYPE html>
@@ -203,47 +244,45 @@ session_start();
         </div>
     </div>
     <div class="py-20 px-16 sm:ml-64">
-    <!-- Project Information Form Card -->
+    
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
         <h2 class="text-xl font-semibold mb-4">Project Information Form</h2>
-        <form action="studentDashboard.php" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-4">
                 <label for="projectName" class="block text-sm font-medium text-gray-700">Project Name:</label>
-                <input type="text" id="projectName" name="projectName" class="w-full px-3 py-2 border rounded-md border-gray-300">
-            </div>
-
-            <div class="mb-4">
-                <label for="batchNo" class="block text-sm font-medium text-gray-700">Batch No:</label>
-                <input type="text" id="batchNo" name="batchNo" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <input type="text" id="projectName" name="projectName" value="<?php echo $project_name; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
 
             <div class="mb-4">
                 <label for="projectLeader" class="block text-sm font-medium text-gray-700">Project Leader:</label>
-                <input type="text" id="projectLeader" name="projectLeader" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <input type="text" id="projectLeader" name="projectLeader" value="<?php echo $name; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
 
             <div class="mb-4">
                 <label for="projectMember1" class="block text-sm font-medium text-gray-700">Project Member 1:</label>
-                <input type="text" id="projectMember1" name="projectMember1" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <input type="text" id="projectMember1" name="projectMember1" value="<?php echo $project_member_1_name; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
             <div class="mb-4">
                 <label for="projectMember2" class="block text-sm font-medium text-gray-700">Project Member 2:</label>
-                <input type="text" id="projectMember2" name="projectMember2" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <input type="text" id="projectMember2" name="projectMember2" value="<?php echo $project_member_2_name; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
             <div class="mb-4">
                 <label for="projectMember3" class="block text-sm font-medium text-gray-700">Project Member 3:</label>
-                <input type="text" id="projectMember3" name="projectMember3" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <input type="text" id="projectMember3" name="projectMember3" value="<?php echo $project_member_3_name; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
             <div class="mb-4">
-                <label for="projectCategory" class="block text-sm font-medium text-gray-700">Project Category: </label>
-                <input type="text" id="projectCategory" name="projectCategory" class="w-full px-3 py-2 border rounded-md border-gray-300">
+                <label for="category" class="block text-sm font-medium text-gray-700">Project Category: </label>
+                <input type="text" id="category" name="category" value="<?php echo $category; ?>"  class="w-full px-3 py-2 border rounded-md border-gray-300">
             </div>
+            <div class="mb-4">
+                <label for="initial_budget" class="block text-sm font-medium text-gray-700">Initial Budget: </label>
+                <input type="number" id="initial_budget" name="initial_budget" placeholder="0" value="<?php echo $initial_budget; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             <div class="mb-4">
                 <label for="zipFile" class="block text-sm font-medium text-gray-700">Upload Project:</label>
-                <input type="file" id="zipFile" name="zipFile" class="w-full border rounded-md border-gray-300">
+                <input type="file" id="zipFile" name="zipFile" accept=".zip, .rar" value="<?php echo $project_path; ?>" class="w-full border rounded-md border-gray-300">
             </div>
             <div>
-                <input type="submit" value="Submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                <input type="submit" value="Submit" name="project_info" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
             </div>
         </form>
     </div>
@@ -253,25 +292,21 @@ session_start();
         <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
 
-        <div class="flex items-center justify-between mb-4">
-            <div class="w-1/4">
-                Stage 1: 
-                <span class="text-green-600 font-semibold">Complete</span>
-            </div>
-            <div class="w-1/4">
-                Stage 2: 
-                <span class="text-yellow-600 font-semibold">Onreview</span>
-            </div>
-            <div class="w-1/4">
-                Stage 3: 
-                <span class="text-red-600 font-semibold">Incomplete</span>
-            </div>
-            <div class="w-1/4">
-                Stage 4: 
-                <span class="text-red-600 font-semibold">Incomplete</span>
-            </div>
+    <div class="flex items-center justify-between mb-4">
+        <div class="w-1/4">
+            Stage 1: 
+            <span class="text-green-600 font-semibold">Complete</span>
+        </div>
+        <div class="w-1/4">
+            Stage 2: 
+            <span class="text-yellow-600 font-semibold">Onreview</span>
+        </div>
+        <div class="w-1/4">
+            Stage 3: 
+            <span class="text-red-600 font-semibold">Incomplete</span>
         </div>
     </div>
+</div>
 
         
     </div>
