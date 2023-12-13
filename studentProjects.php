@@ -237,14 +237,14 @@ session_start();
                     </thead>
                     <tbody>
                         <tr>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
+                            <td class='px-6 py-4'>Hello Valo Khelo</td>
+                            <td class='px-6 py-4'>Syed Niaz</td>
+                            <td class='px-6 py-4'>Asif</td>
+                            <td class='px-6 py-4'>Rasheeq</td>
+                            <td class='px-6 py-4'>Naveel</td>
+                            <td class='px-6 py-4'>Esports</td>
+                            <td class='px-6 py-4'>60000</td>
+                            <td class='px-6 py-4'>null</td>
                         </tr>
                     </tbody>
                 </table>
@@ -266,17 +266,13 @@ session_start();
                             <th class="px-6 py-3">
                                 Stage 3
                             </th>
-                            <th class="px-6 py-3">
-                                Stage 4
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
-                            <td class='px-6 py-4'>1</td>
+                            <td class='px-6 py-4'>Complete</td>
+                            <td class='px-6 py-4'>Incomplete</td>
+                            <td class='px-6 py-4'>Incomplete</td>
                         </tr>
                     </tbody>
                 </table>

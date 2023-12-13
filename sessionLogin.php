@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Invalid user type.";
         }
     } else {
-        echo "Invalid email or password. Please try again.";
+        echo '<script>alert("Invalid email or password. Please try again."); window.location.href = "login.php";</script>';
     }
 }
 

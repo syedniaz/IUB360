@@ -179,6 +179,7 @@ $conn->close();
 
     <div class="py-20 px-16 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+        <p class="text-3xl text-black p-5">Manage Account</p>
             <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
                 <p class="text-2xl text-black">
                     <form class="space-y-4 md:space-y-6 p-2" action="" method="post">
