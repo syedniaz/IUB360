@@ -7,11 +7,9 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 # Screenshots
 ## Dashboard
 
-| |  |
-
 | Home Page                                                                                             | Responsive Design                                                                                     | 
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| <img src="./screenshots/Welcome-to-IUB-360.png" alt="Alt text" style="height: 200px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="Alt text" style="height: 200px;">         |
+| <img src="./screenshots/Welcome-to-IUB-360.png" alt="Alt text" style="height: 600px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="Alt text" style="height: 600px;">         |
 
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
@@ -23,7 +21,7 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 ## How to run
 1.  Install XAMPP.
 2.  Go To htdocs folder inside c:\xampp.
-3.  Clone the project inside htdocs directory inside xampp using git clone https://github.com/syedniaz/iub360.git.
+3.  Clone the project inside htdocs directory inside xampp using git clone https://github.com/syedniaz/iub360.git .
 4.  Import database using iub360.sql.
 5.  Open localhost/iub360.
 6.  Done!
