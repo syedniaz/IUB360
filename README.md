@@ -9,7 +9,7 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| ![Screenshot (000)](screenshots/Welcome-Student.png)   | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/admin-Dashboard.jpg">    | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/Mentor-Dashboard.png"> |
+| ![Screenshot (000)](screenshots/Welcome-Student.png)   | ![Screenshot (001)](screenshots/admin-Dashboard.jpg)    | ![Screenshot (002)](screenshots/Mentor-Dashboard.png)|
 
 
 
