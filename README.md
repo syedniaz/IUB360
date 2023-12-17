@@ -1,5 +1,6 @@
 # IUB360
 IUB360 Startup Program is a comprehensive initiative designed to take participants through the complete cycle of startup development, from concept to market entry.
+It has been developed for our Web Applications course (CSE309) using HTML, CSS (Tailwind and Flowbite) supported by PHP for the backend and MySQL for the database.
 
 https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456cf608eb
 
@@ -8,7 +9,8 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/Welcome-Student.png">    | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/admin-Dashboard.jpg">    | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/Mentor-Dashboard.png"> |
+| ![Screenshot (000)](screenshots/Welcome-Student.png)   | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/admin-Dashboard.jpg">    | <img src="https://raw.githubusercontent.com/syedniaz/iub360/main/screenshots/Mentor-Dashboard.png"> |
+
 
 
 ## How to run
