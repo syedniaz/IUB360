@@ -79,37 +79,6 @@ if ($row) {
     echo "No record found for the given user_id.";
 }
 
-$stage_1_text = "";
-$stage_2_text = "";
-$stage_3_text = "";
-
-$stage_1_color = "";
-$stage_2_color = "";
-$stage_3_color = "";
-
-if ($stage_1 == 0){
-    $stage_1_text = "Incomplete";
-    $stage_1_color = "text-red-600";
-} else {
-    $stage_1_text = "Complete";
-    $stage_1_color = "text-green-600";
-}
-
-if ($stage_2 == 0){
-    $stage_2_text = "Incomplete";
-    $stage_2_color = "text-red-600";
-} else {
-    $stage_2_text = "Complete";
-    $stage_2_color = "text-green-600";
-}
-
-if ($stage_3 == 0){
-    $stage_3_text = "Incomplete";
-    $stage_3_color = "text-red-600";
-} else {
-    $stage_3_text = "Complete";
-    $stage_3_color = "text-green-600";
-}
 
 $selectQuery = "SELECT name FROM users WHERE user_id = $userId";
 $selectResult = $conn->query($selectQuery);
@@ -317,36 +286,12 @@ $conn->close();
                 <input type="number" id="initial_budget" name="initial_budget" placeholder="0" value="<?php echo $initial_budget; ?>" class="w-full px-3 py-2 border rounded-md border-gray-300">
             <div class="mb-4">
                 <label for="zipFile" class="block text-sm font-medium text-gray-700">Upload Project:</label>
-                <input type="file" id="zipFile" name="zipFile" accept=".zip, .rar" value="<?php echo $project_path; ?>" class="w-full border rounded-md border-gray-300">
+                <input type="file" id="zipFile" name="zipFile" accept=".zip, .rar, .pdf" value="<?php echo $project_path; ?>" class="w-full border rounded-md border-gray-300">
             </div>
             <div>
                 <input type="submit" value="Submit" name="project_info" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
             </div>
         </form>
-    </div>
-
-    <!-- Tagline Summary -->
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
-        <h2 class="text-xl font-semibold mb-4">Timeline Summary</h2>
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mb-8">
-
-    <div class="flex items-center justify-between mb-4">
-        <div class="w-1/4">
-            Stage 1: 
-            <span class="<?php echo $stage_1_color; ?> font-semibold"><?php echo $stage_1_text; ?></span>
-        </div>
-        <div class="w-1/4">
-            Stage 2: 
-            <span class="<?php echo $stage_2_color; ?> font-semibold"><?php echo $stage_2_text; ?></span>
-        </div>
-        <div class="w-1/4">
-            Stage 3: 
-            <span class="<?php echo $stage_3_color; ?> font-semibold"><?php echo $stage_3_text; ?></span>
-        </div>
-    </div>
-</div>
-
-        
     </div>
 
 

@@ -1,20 +1,8 @@
 <?php
 session_start();
 
-// include "connection.php";
+include "connection.php";
 
-// if (!$conn) {
-//     die("Connection failed: " . mysqli_connect_error());
-// }
-
-
-// $query_project_information = "SELECT * FROM ProjectDetails";
-// $result_project_information = mysqli_query($conn, $query_project_information);
-
-// $stage1_status = 1;
-// $stage2_status = 0;
-// $stage3_status = 0;
-// $stage4_status = 0;
 ?>
 
 <!DOCTYPE html>
@@ -235,18 +223,26 @@ session_start();
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class='px-6 py-4'>Hello Valo Khelo</td>
-                            <td class='px-6 py-4'>Syed Niaz</td>
-                            <td class='px-6 py-4'>Asif</td>
-                            <td class='px-6 py-4'>Rasheeq</td>
-                            <td class='px-6 py-4'>Naveel</td>
-                            <td class='px-6 py-4'>Esports</td>
-                            <td class='px-6 py-4'>60000</td>
-                            <td class='px-6 py-4'>null</td>
-                        </tr>
-                    </tbody>
+                    <?php
+                        $studentId = $_SESSION["user_id"];
+                        $query = "SELECT users.name AS project_leader, project_details.* 
+                                  FROM project_details 
+                                  JOIN users ON project_details.project_leader_id = users.user_id 
+                                  WHERE users.user_id = '$studentId'";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
+                                    <td class='px-6 py-4'>$row[project_name]</td>
+                                    <td class='px-6 py-4'>$row[project_leader]</td>
+                                    <td class='px-6 py-4'>$row[project_member_1_name]</td>
+                                    <td class='px-6 py-4'>$row[project_member_2_name]</td>
+                                    <td class='px-6 py-4'>$row[project_member_3_name]</td>
+                                    <td class='px-6 py-4'>$row[category]</td>
+                                    <td class='px-6 py-4'>$row[initial_budget]</td>
+                                    <td class='px-6 py-4'>$row[final_budget]</td>
+                                </tr>";
+                        }
+                        ?>
                 </table>
             </div>
         </div>
@@ -269,11 +265,22 @@ session_start();
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class='px-6 py-4'>Complete</td>
-                            <td class='px-6 py-4'>Incomplete</td>
-                            <td class='px-6 py-4'>Incomplete</td>
-                        </tr>
+                    <?php
+                        $studentId = $_SESSION["user_id"];
+                        $query = "SELECT stage_1, stage_2, stage_3 FROM project_details WHERE project_leader_id = '$studentId'";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $stage1Status = $row['stage_1'] ? 'Complete' : 'Incomplete';
+                            $stage2Status = $row['stage_2'] ? 'Complete' : 'Incomplete';
+                            $stage3Status = $row['stage_3'] ? 'Complete' : 'Incomplete';
+                            echo "<tr>
+                                    <td class='px-6 py-4'>$stage1Status</td>
+                                    <td class='px-6 py-4'>$stage2Status</td>
+                                    <td class='px-6 py-4'>$stage3Status</td>
+                                </tr>";
+                        }
+                        ?>
+                    </tbody>
                     </tbody>
                 </table>
             </div>

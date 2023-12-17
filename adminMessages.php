@@ -4,9 +4,6 @@ session_start();
 include "connection.php";
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -153,10 +150,10 @@ include "connection.php";
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th class="px-6 py-3">
-                                Sender
+                                Mentor
                             </th>
                             <th class="px-6 py-3">
-                                Receiver
+                                Student
                             </th>
                             <th class="px-6 py-3">
                                 Message

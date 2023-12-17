@@ -1,5 +1,44 @@
 <?php
 session_start();
+
+include "connection.php";
+
+// Count total students
+$sql = "SELECT COUNT(*) as totalUsers FROM `users`";
+$result = $conn->query($sql);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $totalUsers = $row['totalUsers'];
+} else {
+    $totalUsers = "Error retrieving student count";
+}
+
+// Count total projects
+$sqlTotalProjects = "SELECT COUNT(*) as totalProjects FROM `project_details`";
+$resultTotalProjects = $conn->query($sqlTotalProjects);
+
+if ($resultTotalProjects) {
+    $rowTotalProjects = $resultTotalProjects->fetch_assoc();
+    $totalProjects = $rowTotalProjects['totalProjects'];
+} else {
+    $totalProjects = "Error retrieving total projects count";
+}
+
+// Count completed projects
+$sqlCompletedProjects = "SELECT COUNT(*) as completedProjects FROM `project_details` WHERE `stage_3` = 1";
+$resultCompletedProjects = $conn->query($sqlCompletedProjects);
+
+if ($resultCompletedProjects) {
+    $rowCompletedProjects = $resultCompletedProjects->fetch_assoc();
+    $completedProjects = $rowCompletedProjects['completedProjects'];
+
+    $completedProjects = $completedProjects / $totalProjects * 100;
+} else {
+    $completedProjects = "Error retrieving completed projects count";
+}
+
+
 ?>
 
 
@@ -164,6 +203,129 @@ session_start();
                 </p>
             </div>
         </div>
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50">
+                <div class="flex justify-around gap-20">
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $totalUsers; ?></div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Users</div>
+                    </div>
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $totalProjects; ?></div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Projects</div>
+                    </div>
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $completedProjects; ?>%</div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Completed <br> Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <p class="text-3xl text-black p-5">Projects</p>
+            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
+                <div class="relative overflow-x-auto shadow-md rounded-lg m-10">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3">
+                                    Project Name
+                                </th>
+                                <th class="px-6 py-3">
+                                    Project Leader
+                                </th>
+                                <th class="px-6 py-3">
+                                    Project Member 1
+                                </th>
+                                <th class="px-6 py-3">
+                                    Project Member 2
+                                </th>
+                                <th class="px-6 py-3">
+                                    Project Member 3
+                                </th>
+                                <th class="px-6 py-3">
+                                    Project Category
+                                </th>
+                                <th class="px-6 py-3">
+                                    Initial Budget
+                                </th>
+                                <th class="px-6 py-3">
+                                    Final Budget
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                                $query = "SELECT pd.project_name, u.name as project_leader, pd.project_member_1_name, pd.project_member_2_name, pd.project_member_3_name, pd.category, pd.initial_budget, pd.final_budget
+                                FROM project_details pd
+                                JOIN users u ON pd.project_leader_id = u.user_id";
+                                $result = mysqli_query($conn, $query);
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>
+                                        <td class='px-6 py-4'>$row[project_name]</td>
+                                        <td class='px-6 py-4'>$row[project_leader]</td>
+                                        <td class='px-6 py-4'>$row[project_member_1_name]</td>
+                                        <td class='px-6 py-4'>$row[project_member_2_name]</td>
+                                        <td class='px-6 py-4'>$row[project_member_3_name]</td>
+                                        <td class='px-6 py-4'>$row[category]</td>
+                                        <td class='px-6 py-4'>$row[initial_budget]</td>
+                                        <td class='px-6 py-4'>$row[final_budget]</td>
+                                    </tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <p class="text-3xl text-black p-5">Project Status</p>
+            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
+                <div class="relative overflow-x-auto shadow-md rounded-lg m-10">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3">
+                                    Project Name
+                                </th>
+                                <th class="px-6 py-3">
+                                    Stage 1
+                                </th>
+                                <th class="px-6 py-3">
+                                    Stage 2
+                                </th>
+                                <th class="px-6 py-3">
+                                    Stage 3
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                                $query = "SELECT pd.project_name, pd.stage_1, pd.stage_2, pd.stage_3
+                                FROM project_details pd";
+                                $result = mysqli_query($conn, $query);
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $stage1Status = $row['stage_1'] ? 'Complete' : 'Incomplete';
+                                    $stage2Status = $row['stage_2'] ? 'Complete' : 'Incomplete';
+                                    $stage3Status = $row['stage_3'] ? 'Complete' : 'Incomplete';
+                                echo "<tr>
+                                        <td class='px-6 py-4'>$row[project_name]</td>
+                                        <td class='px-6 py-4'>$stage1Status</td>
+                                        <td class='px-6 py-4'>$stage2Status</td>
+                                        <td class='px-6 py-4'>$stage3Status</td>
+                                    </tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 

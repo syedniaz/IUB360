@@ -1,5 +1,43 @@
 <?php
 session_start();
+
+include "connection.php";
+
+// Count total students
+$sql = "SELECT COUNT(*) as totalStudents FROM `users` WHERE `user_type` = 'student'";
+$result = $conn->query($sql);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $totalStudents = $row['totalStudents'];
+} else {
+    $totalStudents = "Error retrieving student count";
+}
+
+// Count total projects
+$sqlTotalProjects = "SELECT COUNT(*) as totalProjects FROM `project_details`";
+$resultTotalProjects = $conn->query($sqlTotalProjects);
+
+if ($resultTotalProjects) {
+    $rowTotalProjects = $resultTotalProjects->fetch_assoc();
+    $totalProjects = $rowTotalProjects['totalProjects'];
+} else {
+    $totalProjects = "Error retrieving total projects count";
+}
+
+// Count completed projects
+$sqlCompletedProjects = "SELECT COUNT(*) as completedProjects FROM `project_details` WHERE `stage_3` = 1";
+$resultCompletedProjects = $conn->query($sqlCompletedProjects);
+
+if ($resultCompletedProjects) {
+    $rowCompletedProjects = $resultCompletedProjects->fetch_assoc();
+    $completedProjects = $rowCompletedProjects['completedProjects'];
+
+    $completedProjects = number_format($completedProjects / $totalProjects * 100, 1);
+} else {
+    $completedProjects = "Error retrieving completed projects count";
+}
+
 ?>
 
 
@@ -17,6 +55,43 @@ session_start();
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js" defer></script>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        <?php
+
+        $result = $conn->query("SELECT project_name, initial_budget, final_budget FROM project_details");
+
+        echo "var data = google.visualization.arrayToDataTable([";
+        echo "['Project Name', 'Initial Budget', 'Final Budget'],";
+        
+        while ($row = $result->fetch_assoc()) {
+            // Replace NULL with 0 for final budget
+            $finalBudget = ($row["final_budget"] === NULL) ? 0 : $row["final_budget"];
+            echo "['" . $row["project_name"] . "', " . $row["initial_budget"] . ", " . $finalBudget . "],";
+        }
+
+        echo "]);";
+        
+        ?>
+
+        var options = {
+            chart: {
+                title: 'Project Budgets',
+                subtitle: 'Initial and Final Budgets',
+            },
+            bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
 
 </head>
 <body>
@@ -98,11 +173,11 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center p-2 text-gray-900 rounded-lg group">
+                <a href="mentorProjects.php" class="flex items-center p-2 text-gray-900 rounded-lg group">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                     <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                 </svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">Timeline</span>
+                <span class="flex-1 ms-3 whitespace-nowrap">Projects</span>
                 </a>
             </li>
             <li>
@@ -156,8 +231,36 @@ session_start();
                 </p>
             </div>
         </div>
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50">
+                <div class="flex justify-around gap-20">
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $totalStudents; ?></div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Students</div>
+                    </div>
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $totalProjects; ?></div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Total <br> Projects</div>
+                    </div>
+                    <div>
+                        <div class="flex justify-center font-bold text-3xl mb-4"><?php echo $completedProjects; ?>%</div>
+                        <div class="font-bold text-2xl text-white rounded-full bg-blue-900 flex items-center justify-center text-center" style="height: 150px; width: 150px;">Completed <br> Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <div class="flex items-center justify-center h-fit mb-4 rounded bg-gray-50 ">
+                <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+            </div>
+        </div>
     </div>
 
 
 </body>
 </html>
+
+<?php
+    $conn->close();
+?>
