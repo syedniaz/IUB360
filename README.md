@@ -11,7 +11,7 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 
 | Home Page                                                                                             | Responsive Design                                                                                     | 
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ![Screenshot (000)](screenshots/Welcome-to-IUB-360.png)                                               | ![Screenshot (001)](screenshots/Manage-Account-Responsive.png)                                        |
+| <img src="./screenshots/Welcome-to-IUB-360.png" alt="Alt text" style="height: 200px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="Alt text" style="height: 200px;">         |
 
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
