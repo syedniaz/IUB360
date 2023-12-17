@@ -7,6 +7,8 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 # Screenshots
 ## Dashboard
 
+|![Screenshot (003)](screenshots/Welcome-to-IUB-360.png) | ![Screenshot (004)](screenshots/Manage-Account-Responsive.png) |
+
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | ![Screenshot (000)](screenshots/Welcome-Student.png)   | ![Screenshot (001)](screenshots/admin-Dashboard.jpg)    | ![Screenshot (002)](screenshots/Mentor-Dashboard.png)|
