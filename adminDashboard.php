@@ -33,7 +33,7 @@ if ($resultCompletedProjects) {
     $rowCompletedProjects = $resultCompletedProjects->fetch_assoc();
     $completedProjects = $rowCompletedProjects['completedProjects'];
 
-    $completedProjects = $completedProjects / $totalProjects * 100;
+    $completedProjects = number_format($completedProjects / $totalProjects * 100, 1);
 } else {
     $completedProjects = "Error retrieving completed projects count";
 }

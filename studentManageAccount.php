@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_info"])) {
     $updateResult = $conn->query($updateQuery);
 
     if ($updateResult === true) {
-        echo '<script>alert("User information updated successfully!"); window.location.href = "manageStudentAccount.php";</script>';
+        echo '<script>alert("User information updated successfully!"); window.location.href = "studentManageAccount.php";</script>';
     } else {
         echo "Error updating user information: " . $conn->error;
     }
