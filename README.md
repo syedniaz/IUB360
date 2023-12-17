@@ -9,12 +9,12 @@ https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456
 
 | Home Page                                                                                             | Responsive Design                                                                                     | 
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| <img src="./screenshots/Welcome-to-IUB-360.png" alt="Alt text" style="height: 600px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="Alt text" style="height: 600px;">         |
+| <img src="./screenshots/Welcome-to-IUB-360.png" alt="homepage" style="height: 600px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="responsive" style="height: 600px;">         |
 
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| ![Screenshot (002)](screenshots/Welcome-Student.png)                                                  | ![Screenshot (003)](screenshots/admin-Dashboard.jpg)                                                  | ![Screenshot (004)](screenshots/Mentor-Dashboard.png)                                               |
+| <img src="./screenshots/Welcome-Student.png" alt="student" style="height: 300px;">                    | <img src="./screenshots/admin-Dashboard.jpg" alt="admin" style="height: 300px;">                      | <img src="./screenshots/Mentor-Dashboard.png" alt="mentor" style="height: 300px;">                  |
 
 
 
