@@ -5,12 +5,12 @@ It has been developed for our Web Applications course (CSE309) using HTML, CSS (
 https://github.com/syedniaz/iub360/assets/98218195/33ffed9e-9e20-4d53-bbcf-5f456cf608eb
 
 # Screenshots
-## Dashboard
 
 | Home Page                                                                                             | Responsive Design                                                                                     | 
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | <img src="./screenshots/Welcome-to-IUB-360.png" alt="homepage" style="height: 600px;">                | <img src="./screenshots/Manage-Account-Responsive.png" alt="responsive" style="height: 600px;">         |
 
+## Dashboard
 
 | Student                                                                                               | Admin                                                                                                 | Mentor                                                                                              |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
